@@ -1,0 +1,1387 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Linux开发, Ferry&#39;s blog">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Linux开发 | Ferry&#39;s blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Ferry&#39;s blog</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Ferry&#39;s blog</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Linux开发</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Linux/">
+                                <span class="chip bg-color">Linux</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Linux/" class="post-category">
+                                Linux
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-09-13
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        <!-- bug -->
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="Linux开发"><a href="#Linux开发" class="headerlink" title="Linux开发"></a>Linux开发</h1><h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><h3 id="安装Vmware-WorkStation-Pro"><a href="#安装Vmware-WorkStation-Pro" class="headerlink" title="安装Vmware WorkStation Pro"></a>安装Vmware WorkStation Pro</h3><p><a herf="https://www.vmware.com/go/getworkstation-win">Vmware WorkStation Pro</a></p>
+<h3 id="安装虚拟机"><a href="#安装虚拟机" class="headerlink" title="安装虚拟机"></a>安装虚拟机</h3><p><a target="_blank" rel="noopener" href="https://releases.ubuntu.com/18.04.6/ubuntu-18.04.6-desktop-amd64.iso">Ubuntu-18.04.5-desktop-amd64.iso镜像文件</a></p>
+<p>点击新建虚拟机</p>
+<img src="/2022/09/13/Linux/1662723081099.png">
+
+<p>选择安装程序光盘映像文件，选中下载的Ubuntu镜像文件，创建完成。</p>
+<h2 id="Linux常用命令"><a href="#Linux常用命令" class="headerlink" title="Linux常用命令"></a>Linux常用命令</h2><h3 id="linux基本命令"><a href="#linux基本命令" class="headerlink" title="linux基本命令"></a>linux基本命令</h3><h4 id="关机和重启"><a href="#关机和重启" class="headerlink" title="关机和重启"></a>关机和重启</h4><p>shutdown -h now &#x2F;&#x2F;立刻关机</p>
+<p>shutdown -h 5 &#x2F;&#x2F;5分钟后关机</p>
+<p>poweroff &#x2F;&#x2F;立刻关机</p>
+<p>shutdown -r now &#x2F;&#x2F;立刻重启</p>
+<p>shutdown -r 5 &#x2F;&#x2F;5分钟后重启</p>
+<p>reboot &#x2F;&#x2F;立刻重启</p>
+<h4 id="帮助命令"><a href="#帮助命令" class="headerlink" title="帮助命令"></a>帮助命令</h4><p>–help &#x2F;&#x2F;显示linux命令的帮助信息</p>
+<p>man &#x2F;&#x2F;打开linux命令的说明书，”q”退出</p>
+<p><strong>补充：如果系统没有man命令，可以通过输入程序安装</strong></p>
+<pre><code>&quot;sudo apt-get install manpages-posix manpages-posix-dev&quot;
+</code></pre>
+<h4 id="查看当前目录"><a href="#查看当前目录" class="headerlink" title="查看当前目录"></a>查看当前目录</h4><p>pwd &#x2F;&#x2F;查看当前目录地址</p>
+<h4 id="查看进程"><a href="#查看进程" class="headerlink" title="查看进程"></a>查看进程</h4><p>ps -ef &#x2F;&#x2F;查看所有正在运行的进程(输入命令时刻的所有进程)</p>
+<p>top &#x2F;&#x2F;动态显示进程信息</p>
+<p>ps -ef|grep ssh &#x2F;&#x2F;查找特定进程</p>
+<p>ps -axjf &#x2F;&#x2F;列出程序树样式的进程显示</p>
+<h4 id="结束进程"><a href="#结束进程" class="headerlink" title="结束进程"></a>结束进程</h4><p>kill +pid &#x2F;&#x2F;杀死进程</p>
+<p>kill -9 +pid &#x2F;&#x2F;强制杀死进程</p>
+<p>kill -l &#x2F;&#x2F;列出所有可用信号</p>
+<p><img src="/2022/09/13/Linux/1662724559102.png" alt="1662724559102"></p>
+<h4 id="查看网卡信息"><a href="#查看网卡信息" class="headerlink" title="查看网卡信息"></a>查看网卡信息</h4><p>ifconfig &#x2F;&#x2F;查看网卡信息</p>
+<p><strong>补充：如果系统没有ifconfig命令，可以通过输入程序安装</strong></p>
+<pre><code>&quot;sudo apt-get install net-tools&quot;
+</code></pre>
+<h4 id="查看与某台机器链接情况"><a href="#查看与某台机器链接情况" class="headerlink" title="查看与某台机器链接情况"></a>查看与某台机器链接情况</h4><p>ping +ip &#x2F;&#x2F;查看是否与规定的ip地址主机ping通</p>
+<p>下图：说明与主机ping通</p>
+<p><img src="/2022/09/13/Linux/1662724781385.png" alt="1662724781385"></p>
+<h3 id="目录操作指令"><a href="#目录操作指令" class="headerlink" title="目录操作指令"></a>目录操作指令</h3><h4 id="切换目录"><a href="#切换目录" class="headerlink" title="切换目录"></a>切换目录</h4><p>cd &#x2F;  &#x2F;&#x2F;切换到根目录</p>
+<p>cd use &#x2F;&#x2F;切换到根目录下的use目录</p>
+<p>cd ..&#x2F; 	&#x2F;&#x2F;切换到上一级目录</p>
+<p>cd ~	&#x2F;&#x2F;切换到用户目录</p>
+<p>cd -	&#x2F;&#x2F;切换到上次访问的目录</p>
+<h4 id="查看目录"><a href="#查看目录" class="headerlink" title="查看目录"></a>查看目录</h4><p>ls 	&#x2F;&#x2F;查看当前目录下的所有文件和目录</p>
+<p>ls -a	&#x2F;&#x2F;查看当前目录下的所有文件和目录(包括隐藏文件，.开头的文件隐藏)</p>
+<p>ls -l	&#x2F;&#x2F;显示当前目录下所有文件和目录的详细信息(包括文件大小、创建时间等)</p>
+<h4 id="创建目录"><a href="#创建目录" class="headerlink" title="创建目录"></a>创建目录</h4><p>mkdir +contentName	&#x2F;&#x2F;在当前目录下创建目录</p>
+<p>mkdir +contentOld&#x2F;contentNew	&#x2F;&#x2F;在当前目录下的目录中创建目录</p>
+<p>mkdir -p contentNew1&#x2F;contentNew2	&#x2F;&#x2F;在当前目录下创建一个新目录并在新目录下在创建一个新目录</p>
+<h4 id="删除目录-x2F-文件"><a href="#删除目录-x2F-文件" class="headerlink" title="删除目录&#x2F;文件"></a>删除目录&#x2F;文件</h4><p>rm -f +file	&#x2F;&#x2F;删除当前目录下的文件</p>
+<p>rm -rf +content	&#x2F;&#x2F;删除当前目录下的目录</p>
+<p>rm -rf *	&#x2F;&#x2F;删除当前目录下的所有目录和文件</p>
+<h4 id="修改目录"><a href="#修改目录" class="headerlink" title="修改目录"></a>修改目录</h4><p>mv contentNameOld contentNameNew	&#x2F;&#x2F;修改目录名</p>
+<p>mv content1&#x2F;content2 newAddr	&#x2F;&#x2F;将content2剪切到指定目录</p>
+<p>cp -r contentName newAddr	&#x2F;&#x2F;将目录拷贝到目标位置</p>
+<h4 id="搜索目录"><a href="#搜索目录" class="headerlink" title="搜索目录"></a>搜索目录</h4><p>find targetContent +参数	&#x2F;&#x2F;查找目标目录下符合条件的所有文件和目录</p>
+<h3 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h3><h4 id="新建文件"><a href="#新建文件" class="headerlink" title="新建文件"></a>新建文件</h4><p>touch +fileName	&#x2F;&#x2F;在当前目录下创建一个文件</p>
+<h4 id="查看文件"><a href="#查看文件" class="headerlink" title="查看文件"></a>查看文件</h4><p>cat &#x2F;&#x2F;看最后一屏</p>
+<p>more	&#x2F;&#x2F;百分比显示，内容较多的文件只显示一部分，按空格再继续显示</p>
+<p>less	&#x2F;&#x2F;翻页查看</p>
+<p>tail	&#x2F;&#x2F;指定行数或动态查看</p>
+<h4 id="修改文件权限"><a href="#修改文件权限" class="headerlink" title="修改文件权限"></a>修改文件权限</h4><p>chmod +x fileName	&#x2F;&#x2F;添加可执行权限</p>
+<h4 id="压缩文件"><a href="#压缩文件" class="headerlink" title="压缩文件"></a>压缩文件</h4><p>tar -zcvf 打包后的文件名 要打包的文件</p>
+<p>例：</p>
+<pre><code>tar -zcvf ab.tar aa.txt bb.txt //打包指定文件
+tar -zcvf ab.tar * //打包当前目录所有文件目录
+</code></pre>
+<h3 id="查找命令"><a href="#查找命令" class="headerlink" title="查找命令"></a>查找命令</h3><h4 id="文本搜索"><a href="#文本搜索" class="headerlink" title="文本搜索"></a>文本搜索</h4><p>ps -ef | grep sshd | grep -v grep	&#x2F;&#x2F;查找指定服务进程，排除grep本身</p>
+<p>ps -ef | grep sshd -c	&#x2F;&#x2F;查找指定进程，并计算个数</p>
+<h4 id="文件搜索并指定操作"><a href="#文件搜索并指定操作" class="headerlink" title="文件搜索并指定操作"></a>文件搜索并指定操作</h4><p>find . -name“.log”-ls 	&#x2F;&#x2F;在当前目录查找以.log 结尾的文件，并显示详细信息</p>
+<p>find &#x2F;root&#x2F; -perm 	&#x2F;&#x2F;600查找&#x2F;root&#x2F;目录下权限为600的文件</p>
+<p> find . -type f -name“.log”	&#x2F;&#x2F;查找当前目录，以.log结尾的普通文件</p>
+<p>find . -type d | sort	&#x2F;&#x2F;查找当前所有目录并排序 </p>
+<p>find . -size +100M	&#x2F;&#x2F;查找当前目录大于100M的文件</p>
+<h2 id="Vim的安装和使用"><a href="#Vim的安装和使用" class="headerlink" title="Vim的安装和使用"></a>Vim的安装和使用</h2><h3 id="Vim的安装"><a href="#Vim的安装" class="headerlink" title="Vim的安装"></a>Vim的安装</h3><p>执行命令</p>
+<pre><code>&quot;sudo apt-get install vim&quot;
+</code></pre>
+<h3 id="Vim的使用"><a href="#Vim的使用" class="headerlink" title="Vim的使用"></a>Vim的使用</h3><p>​	vim是在 linux系统中使用比较多的文本编辑器，它具有代码补全、编译及错误跳转等方便编程的功能，并以字体颜色辨别语法的正确性，方便程序设计。</p>
+<p>vim fileName	&#x2F;&#x2F;进入要编辑的文件中</p>
+<h4 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h4><p>i	&#x2F;&#x2F;切换到输入模式，以输入字符</p>
+<p>x	&#x2F;&#x2F;删除当前光标所在处的字符</p>
+<p>:	&#x2F;&#x2F;切换到底线命令模式，再最底一行输入命令</p>
+<h4 id="输入模式"><a href="#输入模式" class="headerlink" title="输入模式"></a>输入模式</h4><p>HOME&#x2F;END	&#x2F;&#x2F;移动光标到行首&#x2F;行尾</p>
+<p>Page Up&#x2F;Page Down	&#x2F;&#x2F;上&#x2F;下翻页</p>
+<p>Insert	&#x2F;&#x2F;切换光标为输入&#x2F;替换模式，光标将标称竖线&#x2F;下划线</p>
+<p>ESC	&#x2F;&#x2F;退出输入模式，切换到命令模式</p>
+<h4 id="底线命令模式"><a href="#底线命令模式" class="headerlink" title="底线命令模式"></a>底线命令模式</h4><p>q	&#x2F;&#x2F;退出程序</p>
+<p>w	&#x2F;&#x2F;保存文件</p>
+<p>w!	&#x2F;&#x2F;强制保存该文件</p>
+<p>wq	&#x2F;&#x2F;保存并退出文件</p>
+<p>wq	&#x2F;&#x2F;强制保存并退出文件</p>
+<h2 id="GCC编译器"><a href="#GCC编译器" class="headerlink" title="GCC编译器"></a>GCC编译器</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>GCC是以GPL许可证所发行的自由软件，也是 GNU计划的关键部分。GCC初衷是为GNU操作系统专门编写一款编译器，现已被大多数类Unix操作系统(如Linux、BSD、Mac OSx等）采纳为标准的编译器。</p>
+<p>​	GCC原名为GNUC语言编辑器（GNU C Compiler)，只能处理c语言。但其很快扩展，变得可处理C++，后来又扩展为能够支持更多编程语言，如 Fortran、Pascal、Objective-C、Java、Ada、Go 以及各类处理器架构上的汇编语言等，所以改名GNu编译器套件（GNU Compiler Collection)。</p>
+<h3 id="编译过程"><a href="#编译过程" class="headerlink" title="编译过程"></a>编译过程</h3><h4 id="预处理"><a href="#预处理" class="headerlink" title="预处理"></a>预处理</h4><p>插入头文件，替换宏</p>
+<pre><code>gcc -E test.c -o test.i
+</code></pre>
+<h4 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h4><p>编译成汇编</p>
+<pre><code>gcc -S test.i -o test.s
+</code></pre>
+<h4 id="汇编"><a href="#汇编" class="headerlink" title="汇编"></a>汇编</h4><p>编译成目标文件</p>
+<pre><code>gcc -c test.s -o test.o
+</code></pre>
+<h4 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h4><p>链接到库中，变成可执行文件</p>
+<pre><code>gcc test.o -o test
+</code></pre>
+<h4 id="一次性生成"><a href="#一次性生成" class="headerlink" title="一次性生成"></a>一次性生成</h4><pre><code>gcc test.c -o test
+</code></pre>
+<h3 id="GCC生成动态库和静态库"><a href="#GCC生成动态库和静态库" class="headerlink" title="GCC生成动态库和静态库"></a>GCC生成动态库和静态库</h3><h4 id="单个源文件-x2F-目标直接生成动态库"><a href="#单个源文件-x2F-目标直接生成动态库" class="headerlink" title="单个源文件&#x2F;目标直接生成动态库"></a>单个源文件&#x2F;目标直接生成动态库</h4><pre><code>gcc -fPIC -shared xxx.c -o libxxx.so
+gcc -fPIC -shared xxx.o -o libxxx.so
+</code></pre>
+<h4 id="多个源文件-x2F-目标直接生成动态库"><a href="#多个源文件-x2F-目标直接生成动态库" class="headerlink" title="多个源文件&#x2F;目标直接生成动态库"></a>多个源文件&#x2F;目标直接生成动态库</h4><pre><code>gcc -fPIC -shared xxx1.c xxx2.c xxx3.c -o livxxx.so
+gcc -fPIC -shared xxx1.o xxx2.o xxx3.o -o livxxx.so
+</code></pre>
+<h4 id="单个源文件-x2F-目标直接生成静态库"><a href="#单个源文件-x2F-目标直接生成静态库" class="headerlink" title="单个源文件&#x2F;目标直接生成静态库"></a>单个源文件&#x2F;目标直接生成静态库</h4><pre><code>ar -rc libxxx.a xxx.0
+</code></pre>
+<h4 id="多个源文件-x2F-目标直接生成静态库"><a href="#多个源文件-x2F-目标直接生成静态库" class="headerlink" title="多个源文件&#x2F;目标直接生成静态库"></a>多个源文件&#x2F;目标直接生成静态库</h4><pre><code>ar -rc libxxx.a xxx1.o xxx2.o xxx3.o
+</code></pre>
+<h2 id="Makefile编写"><a href="#Makefile编写" class="headerlink" title="Makefile编写"></a>Makefile编写</h2><h3 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h3><p>​	Makefile文件描述了整个工程的编译、链接等规则。其中包括:工程中的哪些源文件需要编译以及如何编译、需要创建哪些库文件以及如何创建这些库文件、如何在最后产生我们想要的可执行文件。尽管看起来可能是很复杂的事情，但是为工程编写Makefile的好处是<strong>能够使用一行命令来完成”自动化编译”，一旦提供一个(通常对于一个工程来说会是多个）正确的Makefile</strong>。编译整个工程所要做的事就是在shell提示符下输入make命令。整个工程完全自动编译，极大提高了效率。</p>
+<h3 id="Makefile规则"><a href="#Makefile规则" class="headerlink" title="Makefile规则"></a>Makefile规则</h3><pre><code>target...:prerequisites...
+    command
+    ...
+    ...
+</code></pre>
+<p>target	&#x2F;&#x2F;可以是一个object file，也可以是一个课执行文件，还可以是一个标签</p>
+<p>prerequisites	&#x2F;&#x2F;生成该target所依赖的文件和&#x2F;或target</p>
+<p>command	&#x2F;&#x2F;该target要执行的命令</p>
+<p>例如</p>
+<pre><code>hello: hello.c hello.h
+    gcc hello.c -o hello
+</code></pre>
+<h3 id="make编译过程"><a href="#make编译过程" class="headerlink" title="make编译过程"></a>make编译过程</h3><p>(1）读入所有的Makefile文件;<br>(2）读入被include包括的其他Makefile文件;<br>(3）初始化文件中的变量;<br>(4）推导隐式规则，并分析所有规则;<br>(5）根据依赖关系，决定哪些目标要重新生成;</p>
+<p>(6）执行生成命令。</p>
+<h2 id="Shell编程"><a href="#Shell编程" class="headerlink" title="Shell编程"></a>Shell编程</h2><h3 id="简介-2"><a href="#简介-2" class="headerlink" title="简介"></a>简介</h3><p>​	Shell是 linux中一个重要的层次，它是用户与系统交互作用的界面。在介绍linux命令时，<strong>shell都作为命令解释程序出现:它接收用户打入的命令，进行分析，创建子进程实现命令所规定的功能，等子进程终止工作后，发出提示符</strong>。这是shell最常见的使用方式。<br>​	Shell除了作为命令解释程序以外，还是一种高级程序设计语言，<strong>它有变量，关键字，有各种控制语句，如if，case，while，for等语句，有自己的语法结构</strong>。利用shell程序设计语言可以编写出功能很强、但代码简单的程序，特别是它把相关的linux命令有机地组合在一起，可大大提高编程的效率，充分利用linux系统的开放性能，设计出适合自己要求的命令。</p>
+<h3 id="Shell语法"><a href="#Shell语法" class="headerlink" title="Shell语法"></a>Shell语法</h3><h4 id="Shell变量"><a href="#Shell变量" class="headerlink" title="Shell变量"></a>Shell变量</h4><h5 id="用户定义的变量"><a href="#用户定义的变量" class="headerlink" title="用户定义的变量"></a>用户定义的变量</h5><p>变量名时以字母或下划线打头的字母、数字和下划线字符序列，并且大小写敏感</p>
+<pre><code>MYFILE=/usr/meng/ff/m1.c
+</code></pre>
+<h5 id="位置参数"><a href="#位置参数" class="headerlink" title="位置参数"></a>位置参数</h5><p>​	执行Shell 脚本时可以使用参数。<strong>由出现在命令行上的位置确定的参数称做位置参数</strong>。在sh中总共有十个位置参数，其对应的名称依次是$0,$1,$2….9。其中$o始终表示命令名或Shell脚本名，对于一个命令行，必然有命令名，也就必定有$0。而其他位置参数可以根据需求可有可无。</p>
+<h4 id="特殊字符"><a href="#特殊字符" class="headerlink" title="特殊字符"></a>特殊字符</h4><h5 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h5><p>*	&#x2F;&#x2F;匹配任意字符的0次或多次出现</p>
+<p>?	&#x2F;&#x2F;匹配任意一个字符</p>
+<p>[]	&#x2F;&#x2F;其中有一个字符组，匹配该字符组所限定的任意一个字符</p>
+<h5 id="引号"><a href="#引号" class="headerlink" title="引号"></a>引号</h5><p>双引号	&#x2F;&#x2F;除$、倒引号和反斜线仍保留其功能，其余字符作为普通字符处理</p>
+<p>单引号	&#x2F;&#x2F;所有字符都作为普通字符</p>
+<p>倒引号	&#x2F;&#x2F;用于执行shell命令</p>
+<p>反斜线	&#x2F;&#x2F;转义字符</p>
+<h4 id="条件判断与循环结构"><a href="#条件判断与循环结构" class="headerlink" title="条件判断与循环结构"></a>条件判断与循环结构</h4><h5 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a>if语句</h5><h5 id="测试语句"><a href="#测试语句" class="headerlink" title="测试语句"></a>测试语句</h5><p>test命令</p>
+<p>方括号将测试条件括起来</p>
+<p>例如：测试位置参数$1是否是已存在的普通文件</p>
+<pre><code>test -f&quot;$1,”
+[-f $1]
+</code></pre>
+<h5 id="while语句"><a href="#while语句" class="headerlink" title="while语句"></a>while语句</h5><h5 id="for语句"><a href="#for语句" class="headerlink" title="for语句"></a>for语句</h5><h4 id="函数定义与调用"><a href="#函数定义与调用" class="headerlink" title="函数定义与调用"></a>函数定义与调用</h4><p>同C</p>
+<h2 id="版本管理工具GIT"><a href="#版本管理工具GIT" class="headerlink" title="版本管理工具GIT"></a>版本管理工具GIT</h2><h3 id="GIT概念介绍"><a href="#GIT概念介绍" class="headerlink" title="GIT概念介绍"></a>GIT概念介绍</h3><h4 id="git对象模型"><a href="#git对象模型" class="headerlink" title="git对象模型"></a>git对象模型</h4><p>blob	&#x2F;&#x2F;用赖存储文件数据，通常是一个文件</p>
+<p>tree	&#x2F;&#x2F;类似于一个目录，用来管理一些tree或是blob</p>
+<p>commit	&#x2F;&#x2F;指向一个tree对象，用来表示某次提交时的状态，包括一些关于时间点的元数据(时间戳、最近一次提交的作者、指向上次提交的指针等)</p>
+<p>tag	&#x2F;&#x2F;也成为里程碑，用来表示某个重要的commit，可以通过tag名称来找到这个commit</p>
+<pre><code>//用stable-1 作为提交[1b2e1d63ff]的代称
+&quot;git tag stable-1 1b2e1d63ff&quot;
+&quot;git tag -a stable-1 1b2e1d6ff&quot;
+</code></pre>
+<p><img src="/2022/09/13/Linux/1662731160138.png" alt="1662731160138"></p>
+<p><img src="/2022/09/13/Linux/1662731197820.png" alt="1662731197820"></p>
+<p><img src="/2022/09/13/Linux/1662731215802.png" alt="1662731215802"></p>
+<h4 id="索引对象的方法"><a href="#索引对象的方法" class="headerlink" title="索引对象的方法"></a>索引对象的方法</h4><p>直接填入SHA-1码</p>
+<pre><code>&quot;git log 42c4038c46249ce61ba68f99cb0a0e0c68f5a691
+&quot;
+</code></pre>
+<p>填入SHA-1码的前几位，保证没有重复即可</p>
+<pre><code>&quot;git log 42c403&quot;
+</code></pre>
+<p>访问某个提交的某个文件</p>
+<p>HEAD	&#x2F;&#x2F;表示最近一次提交</p>
+<p>HEAD^	&#x2F;&#x2F;表示倒数第二次提交</p>
+<p>HEAD~n	&#x2F;&#x2F;表示倒数第n次提交</p>
+<pre><code>&quot;git show HEAD^:frivers/usb/dwc_otg/dwc_otg_driver.c&quot;
+</code></pre>
+<p><img src="/2022/09/13/Linux/1662801948557.png" alt="1662801948557"></p>
+<p>双点语法	&#x2F;&#x2F;获得一个分支有而另一个分支中没有的</p>
+<pre><code>//得到C、D
+&quot;git log master..experiment&quot;
+</code></pre>
+<p>三点语法	&#x2F;&#x2F;获得两个分支不共享的分支集合</p>
+<pre><code>//得到C、D、E、F
+&quot;git log master...experiment&quot;
+</code></pre>
+<h4 id="git-config-参数设置"><a href="#git-config-参数设置" class="headerlink" title="git config 参数设置"></a>git config 参数设置</h4><pre><code>//设置用户信息
+&quot;git config --global user.name &#39;your name&#39;&quot;
+&quot;git config --global user.email &#39;your@email&#39;&quot;
+</code></pre>
+<p>git每次提交要求必须有相应的用户名和邮箱信息，加上–global参数会将用户信息写入到~&#x2F;.gitconfig目录下，作为全局设置</p>
+<pre><code>//开启彩色ui效果
+git config --global color.ui true
+</code></pre>
+<pre><code>//设置差异比较工具为vim
+git config --global diff.tool vimdiff
+</code></pre>
+<pre><code>//不检查文件模式差别
+git config --add cre.filemode false
+</code></pre>
+<h4 id="git-alise-命名别名"><a href="#git-alise-命名别名" class="headerlink" title="git alise 命名别名"></a>git alise 命名别名</h4><p>方法一：在~&#x2F;.gitconfig文件中添加[alise]字段</p>
+<pre><code>[alias]
+st = status
+ci = commit
+br = branch
+</code></pre>
+<p>方法二：用命令行的方式</p>
+<pre><code>&quot;git config --global alise.st status&quot;
+</code></pre>
+<h4 id="gitignore忽略文件"><a href="#gitignore忽略文件" class="headerlink" title="gitignore忽略文件"></a>gitignore忽略文件</h4><p>创建一个名为.gitignore的文件,列出要忽略的文件模式</p>
+<pre><code>cat .gitignore
+#	//此为注释
+*.o	//忽略所有.o结尾的文件
+!lib.a	//但lib.a除外
+SI/	//忽略工程目录下自建的SourceInsight工程目录。
+</code></pre>
+<h3 id="常用命令技巧"><a href="#常用命令技巧" class="headerlink" title="常用命令技巧"></a>常用命令技巧</h3><p>git init	&#x2F;&#x2F;初始化一个版本库</p>
+<p>git clone ssh:&#x2F;&#x2F;<a href="mailto:&#x67;&#105;&#116;&#64;&#x78;&#x78;&#46;&#120;&#x78;&#x2e;&#120;&#120;&#46;&#x78;&#120;">&#x67;&#105;&#116;&#64;&#x78;&#x78;&#46;&#120;&#x78;&#x2e;&#120;&#120;&#46;&#x78;&#120;</a>&#x2F;kernel	&#x2F;&#x2F;将远程版本库克隆到本地</p>
+<p>git log	&#x2F;&#x2F;显示日志</p>
+<pre><code>//显示最近的n次提交
+git log -n
+//以图形方式查看日志
+git log --graph --oneline -10
+//只显示一行的简要提交信息
+git log --oneline
+//显示修改的文件
+git log --stat
+</code></pre>
+<p>过滤输出的日志</p>
+<pre><code>git log --after=&lt;date&gt;
+git log --until=&lt;date&gt;
+git log --before=&lt;date&gt;
+git log --author=&lt;pattern&gt;
+git log --committer=&lt;pattern&gt;
+例：git log --oneline --after=2012/5/1 --before=2012/7/1 --commiter=xxx
+</code></pre>
+<p>版本库图形化软件</p>
+<pre><code>gitk
+</code></pre>
+<p>查看本地分支列表</p>
+<pre><code>git branch
+</code></pre>
+<p>查看远程分支</p>
+<pre><code>git branch -r
+</code></pre>
+<p>建立本地 local branch</p>
+<pre><code>git branch &lt;new_brach_name&gt;
+</code></pre>
+<p>分支改名</p>
+<pre><code>git brach -m &lt;old_name&gt; &lt;new_name&gt;
+</code></pre>
+<p>切换分支</p>
+<p><strong>注意：切换分支会丢失工作区和暂存区中的修改，所以在checkout前要先用git stash save暂存未提交的数据或git commit提交新版本</strong></p>
+<pre><code>git checkout &lt;branch_name&gt;
+</code></pre>
+<p>本地建立branch并立即切换过去</p>
+<pre><code>git checkout -b &lt;new_brach_name&gt;
+</code></pre>
+<p>删除 local branch</p>
+<pre><code>git branch -D &lt;branch_name&gt;
+</code></pre>
+<p>比较任意两个对象</p>
+<pre><code>git diff
+</code></pre>
+<p>比较工作区和暂存区中文件的区别</p>
+<pre><code>git diff --cached &lt;commit id&gt;
+</code></pre>
+<p>比较工作区和版本库中最新一个提交</p>
+<pre><code>git diff HEAD
+</code></pre>
+<p>显示哪些文件被修改</p>
+<pre><code>git diff HEAD HEAD^ --stat
+</code></pre>
+<p>从远程版本库取回最新代码并自动merge</p>
+<pre><code>git pull
+//等同于
+git fetch + git merge origin/HEAD
+</code></pre>
+<p>合并工作区与本地的老版本代码</p>
+<p><strong>注意：合并若不成功，将不会自动产生新的commit；若产生冲突，则冲突文件需要手动处理并git add加入暂存区后才可以提交新版本</strong></p>
+<pre><code>git checkout mywork 	//切换到即将提交的修改文件
+git merge origin
+</code></pre>
+<p><img src="/2022/09/13/Linux/1662874312307.png" alt="1662874312307"></p>
+<p>git rebase</p>
+<pre><code>git checkout mywork
+git rebase origin
+</code></pre>
+<p>git gc</p>
+<p>git rebase –continue</p>
+<p>git rebase –abort</p>
+<p>修改历史提交</p>
+<pre><code>git reset
+//分支指针退回先前版本，还原暂存区、不更改工作区代码
+git reset --mixed
+//分支指针退回先前版本、不还原暂存区和工作区代码
+git reset --soft
+//分支指针退回先前版本、并还原暂存区和工作区的代码
+</code></pre>
+<p><img src="/2022/09/13/Linux/1662875190565.png" alt="1662875190565"></p>
+<p>反转提交(重新提交正确的修改，这样同步版本库时正确的会替代掉错误的提交，从而起到修复)</p>
+<pre><code>git revert
+</code></pre>
+<p>存储未提交的变更</p>
+<pre><code>git stash save
+</code></pre>
+<p>返回暂存的变更</p>
+<pre><code>git stash pop
+</code></pre>
+<p>查看储存栈内的数据</p>
+<pre><code>git stash list
+</code></pre>
+<p>连接远程版本库</p>
+<pre><code>git remote add &lt;name&gt; &lt;uri&gt;		//之后执行fetch、pull、push等操作
+</code></pre>
+<p>删除远程版本库</p>
+<pre><code>git remote rm &lt;name&gt;
+</code></pre>
+<p>显示远程版本库的详细信息</p>
+<pre><code>git remote -v
+</code></pre>
+<p>查看文件冲突状态</p>
+<pre><code>git status
+</code></pre>
+<p>查看所有分支的所有操作记录</p>
+<pre><code>git reflog
+</code></pre>
+<p>添加文件到暂存区</p>
+<pre><code>git add &lt;file&gt;
+</code></pre>
+<p>修改文件后，仅添加已修改文件</p>
+<pre><code>git add -u
+</code></pre>
+<p>添加所有更新</p>
+<pre><code>git rm &lt;file&gt;
+</code></pre>
+<p>重命名版本库中的文件</p>
+<pre><code>git rename &lt;oldname&gt; &lt;newname&gt;
+</code></pre>
+<p>从本分支以外获取一个已存在的提交</p>
+<pre><code>git cherry-pick &lt;commit&gt;
+</code></pre>
+<p>带签名提交</p>
+<pre><code>git commit -s
+</code></pre>
+<p>修改刚刚提交的内容</p>
+<pre><code>git commit - amend
+</code></pre>
+<p>将远程版本库更新到本地(在提交前必须这么做)</p>
+<pre><code>git push
+</code></pre>
+<p>从commit中生成patch</p>
+<pre><code>git format-patch -1		//生成一个
+</code></pre>
+<p>将别人使用git send-email的邮件，直接另存为.eml，再使用git am直接合并patch</p>
+<pre><code>git am &lt;file.eml&gt;
+</code></pre>
+<p>用git命令打包代码，某个分支或者某个TAG对应的代码</p>
+<pre><code>git archive -0 kernel-v3.10.tar.gz master
+</code></pre>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">ferry</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://example.com/2022/09/13/Linux/">http://example.com/2022/09/13/Linux/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">ferry</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Linux/">
+                                    <span class="chip bg-color">Linux</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <!-- <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div> -->
+            </div>
+            <!--  -->
+        </div>
+    </div>
+
+    
+
+    
+        <link rel="stylesheet" href="/libs/gitment/gitment-default.css">
+<link rel="stylesheet" href="/css/gitment.css">
+
+<div class="gitment-card card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="gitment-content" class="card-content"></div>
+</div>
+
+<script src="/libs/gitment/gitment.js"></script>
+<script>
+var gitment = new Gitment({
+    id: 'Tue Sep 13 2022 21:11:15 GMT+0800',
+    owner: '',
+    repo: '',
+    oauth: {
+        client_id: '',
+        client_secret: ''
+    }
+});
+
+gitment.render('gitment-content');
+</script>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2022/09/13/Android/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Android开发">
+                        
+                        <span class="card-title">Android开发</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Android开发学习
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-09-13
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Android/" class="post-category">
+                                    Android
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/Android/">
+                        <span class="chip bg-color">Android</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/09/13/Java(%E4%B8%80)/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Java(一)">
+                        
+                        <span class="card-title">Java(一)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Java学习笔记一
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-09-13
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Java/" class="post-category">
+                                    Java
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2022</span>
+            
+            <span id="year">2022</span>
+            <a href="/about" target="_blank">ferry</a>
+            <!-- |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a> -->
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span 
+                    class="white-color">10</span>&nbsp;次
+            </span>
+            
+            
+            <!-- <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span> -->
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span 
+                    class="white-color">10</span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1250690980@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1250690980" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1250690980" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
